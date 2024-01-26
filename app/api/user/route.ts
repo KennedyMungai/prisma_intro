@@ -5,7 +5,7 @@ export const GET = async () => {
     const users = await prisma.user.findMany({
         where: {
             post: {
-                some: {
+                none: {
                     isPublished: true
                 }
             }
