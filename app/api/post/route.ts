@@ -17,7 +17,12 @@ export const GET = async () => {
         },
         select: {
             title: true,
-            author: true
+            author: {
+                select: {
+                    email: true,
+                    name: true
+                }
+            }
         }
     })
     return NextResponse.json(posts)
