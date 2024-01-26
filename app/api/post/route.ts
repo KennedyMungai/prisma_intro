@@ -5,8 +5,13 @@ export const GET = async () => {
     const posts = await prisma.post.findMany({
         where: {
             author: {
-                is: {
+                isNot: {
                     name: 'Jack'
+                },
+                is: {
+                    email: {
+                        startsWith: 's'
+                    }
                 }
             }
         }
