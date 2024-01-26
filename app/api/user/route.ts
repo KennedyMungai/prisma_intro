@@ -5,7 +5,8 @@ export const GET = async () => {
     const users = await prisma.user.findMany({
         where: {
             name: {
-                contains: 'a'
+                contains: 'a',
+                startsWith: 's'
             }
         }
     })
