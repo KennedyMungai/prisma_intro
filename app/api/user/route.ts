@@ -4,9 +4,10 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
     const users = await prisma.user.findMany({
         where: {
-            name: {
-                contains: 'a',
-                startsWith: 's'
+            post: {
+                every: {
+                    isPublished: true
+                }
             }
         }
     })
