@@ -14,9 +14,6 @@ export const GET = async () => {
                     }
                 }
             }
-        },
-        include: {
-            author: true
         }
     })
     return NextResponse.json(posts)
