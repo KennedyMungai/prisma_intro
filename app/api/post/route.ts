@@ -14,6 +14,9 @@ export const GET = async () => {
                     }
                 }
             }
+        },
+        select: {
+            title: true
         }
     })
     return NextResponse.json(posts)
