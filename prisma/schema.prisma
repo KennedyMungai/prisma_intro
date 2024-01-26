@@ -16,6 +16,7 @@ model User {
   name    String   @map("firstname")
   role    Role?    @default(USER)
   profile Profile?
+  post    Post[]
 
   @@map("users")
 }
@@ -25,6 +26,16 @@ model Profile {
   bio    String
   userId Int    @unique
   user   User   @relation(fields: [userId], references: [id])
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  authorId    Int
+  title       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isPublished Boolean  @default(false)
+  author      User     @relation(fields: [authorId], references: [id])
 }
 
 enum Role {
