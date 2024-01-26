@@ -16,7 +16,8 @@ export const GET = async () => {
             }
         },
         select: {
-            title: true
+            title: true,
+            author: true
         }
     })
     return NextResponse.json(posts)
