@@ -4,9 +4,20 @@ import { NextResponse } from "next/server"
 export const POST = async () => {
     const user = await prisma.user.create({
         data: {
-            email: 'some@body.com',
-            name: 'Some Body',
-            role: 'USER'
+            email: 'some1@body.com',
+            name: 'Some1 Body',
+            role: 'USER',
+            post: {
+                create: [
+                    {
+                        title: 'Some title',
+                        isPublished: true,
+                        categories: {
+                            connect: [{ id: 1 }, { id: 2 }]
+                        }
+                    }
+                ]
+            }
         }
     })
 
