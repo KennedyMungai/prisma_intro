@@ -8,6 +8,9 @@ export const GET = async () => {
         },
         _avg: {
             likeNum: true
+        },
+        _count: {
+            id: true
         }
     })
 
