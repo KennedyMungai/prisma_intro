@@ -8,7 +8,7 @@ export const GET = async (request: Request) => {
     const pgsize = +(searchParams.get("pgsize") ?? 2)
 
     const paginatedPosts = await prisma.post.findMany({
-        skip: pgnum,
+        skip: pgnum * pgsize,
         take: pgsize
     })
 
