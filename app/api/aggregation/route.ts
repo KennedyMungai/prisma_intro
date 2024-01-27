@@ -11,6 +11,12 @@ export const GET = async () => {
         },
         _count: {
             id: true
+        },
+        _min: {
+            likeNum: true
+        },
+        _max: {
+            likeNum: true
         }
     })
 
