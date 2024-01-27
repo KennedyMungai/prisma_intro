@@ -15,10 +15,10 @@ export const POST = async () => {
                         categories: {
                             connectOrCreate: {
                                 where: {
-                                    id: 2
+                                    id: 3
                                 },
                                 create: {
-                                    name: "Big Data "
+                                    name: "Huge Data"
                                 }
                             }
                         }
