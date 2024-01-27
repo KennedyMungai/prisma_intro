@@ -2,7 +2,8 @@ import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
 interface IBody {
-    name: string
+    name: string,
+    email: string,
 }
 
 type Props = {
@@ -14,11 +15,15 @@ type Props = {
 export const PUT = async (request: Request, { params: { id } }: Props) => {
     const body: IBody = await request.json()
 
-    const updatedUser = await prisma.user.update({
+    const updatedUser = await prisma.user.upsert({
         where: {
             id: Number(id)
         },
-        data: {
+        create: {
+            name: body.name,
+            email: body.email
+        },
+        update: {
             name: body.name
         }
     })
