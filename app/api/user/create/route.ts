@@ -1,13 +1,12 @@
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
-interface IBody
-{
+interface IBody {
     name: string
     email: string
 }
 
-export const POST = async () => {
+export const POST = async (request: Request) => {
     // const user = await prisma.user.create({
     //     data: {
     //         email: 'some2@body.com',
@@ -34,22 +33,27 @@ export const POST = async () => {
     //     }
     // })
 
-    const users = await prisma.user.createMany({
-        data: [
-            {
-                name: 'Sha Poopie', 
-                email: 'Sha@poopie.com'
-            },
-            { 
-                name: 'Thun Der', 
-                email: 'thun@der.com' 
-            },
-            {
-                name: "Kitchen Sink", 
-                email: "kitchen@sink.com"
-            }
-        ]
+    const body: IBody = await request.json()
+    const user = await prisma.user.create({
+        data: body
     })
 
-    return NextResponse.json(users)
+    // const users = await prisma.user.createMany({
+    //     data: [
+    //         {
+    //             name: 'Sha Poopie', 
+    //             email: 'Sha@poopie.com'
+    //         },
+    //         { 
+    //             name: 'Thun Der', 
+    //             email: 'thun@der.com' 
+    //         },
+    //         {
+    //             name: "Kitchen Sink", 
+    //             email: "kitchen@sink.com"
+    //         }
+    //     ]
+    // })
+
+    return NextResponse.json(user)
 }
