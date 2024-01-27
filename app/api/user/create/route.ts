@@ -1,6 +1,12 @@
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
+interface IBody
+{
+    name: string
+    email: string
+}
+
 export const POST = async () => {
     // const user = await prisma.user.create({
     //     data: {
