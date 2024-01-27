@@ -6,6 +6,8 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"pgnum",
+			"pgsize",
 			"tailwindcss"
 		],
 		"WillLuke.nextjs.addTypesOnSave": true,
