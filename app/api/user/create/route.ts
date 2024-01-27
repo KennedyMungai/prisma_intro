@@ -4,8 +4,8 @@ import { NextResponse } from "next/server"
 export const POST = async () => {
     const user = await prisma.user.create({
         data: {
-            email: 'some1@body.com',
-            name: 'Some1 Body',
+            email: 'some2@body.com',
+            name: 'Some2 Body',
             role: 'USER',
             post: {
                 create: [
@@ -18,7 +18,7 @@ export const POST = async () => {
                                     id: 3
                                 },
                                 create: {
-                                    name: "Huge Data"
+                                    name: "ORM"
                                 }
                             }
                         }
