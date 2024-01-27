@@ -10,9 +10,7 @@ type Props = {
 export const DELETE = async (request: Request, { params: { id } }: Props) => {
     const deletedUser = await prisma.user.delete({
         where: {
-            id: parseInt(id)
+            id: +id
         }
     })
-
-    return NextResponse.json(deletedUser, { status: 204 })
 }
