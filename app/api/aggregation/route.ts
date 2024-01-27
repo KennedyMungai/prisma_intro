@@ -5,6 +5,9 @@ export const GET = async () => {
     const aggregations = await prisma.post.aggregate({
         _sum: {
             likeNum: true
+        },
+        _avg: {
+            likeNum: true
         }
     })
 
