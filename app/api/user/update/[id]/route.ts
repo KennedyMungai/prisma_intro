@@ -7,16 +7,18 @@ type Props = {
     }
 }
 
+interface IBody{
+    name: string
+}
+
 export const PUT = async (request: Request, {params: {id}}: Props) => {
-    console.log(id)
+    const body: IBody = await request.json()
 
     const updatedUser = await prisma.user.update({
         where: {
             id: Number(id)
         },
-        data: {
-            name: "Updated User"
-        }
+        data: body
     })
 
     return NextResponse.json(updatedUser)
