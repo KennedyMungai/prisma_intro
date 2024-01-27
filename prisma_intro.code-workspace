@@ -7,6 +7,8 @@
 	"settings": {
 		"cSpell.words": [
 			"tailwindcss"
-		]
+		],
+		"WillLuke.nextjs.addTypesOnSave": true,
+		"WillLuke.nextjs.hasPrompted": true
 	}
 }
