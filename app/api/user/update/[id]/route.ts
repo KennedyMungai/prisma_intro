@@ -1,16 +1,12 @@
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
-type Props = {
-    params: {
-        id: string
-    }
-}
+export const PUT = async ({params}: {params: {id: string}}) => {
+    console.log(params.id)
 
-export const PUT = async ({ params: { id } }: Props) => {
     const updatedUser = await prisma.user.update({
         where: {
-            id: Number(id)
+            id: Number(params.id)
         },
         data: {
             name: "Updated User"
