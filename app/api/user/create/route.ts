@@ -13,7 +13,14 @@ export const POST = async () => {
                         title: 'Some title',
                         isPublished: true,
                         categories: {
-                            connect: [{ id: 1 }, { id: 2 }]
+                            connectOrCreate: {
+                                where: {
+                                    id: 2
+                                },
+                                create: {
+                                    name: "Big Data "
+                                }
+                            }
                         }
                     }
                 ]
